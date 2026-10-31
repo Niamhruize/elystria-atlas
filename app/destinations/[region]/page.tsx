@@ -3,6 +3,11 @@ const countries: Record<string, string[]> = {
   europe: ["Lithuania", "Germany", "France", "United Kingdom", "Ireland"],
   "north-america": ["Canada"],
 };
+export function generateStaticParams() {
+  return Object.keys(countries).map((region) => ({
+    region,
+  }));
+}
 
 export default async function RegionPage({
   params,
