@@ -102,7 +102,11 @@ export default function Home() {
 
       {/* Hero */}
       <section className="relative flex min-h-[650px] items-center overflow-hidden border-b border-[#b89a51]/20">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_45%,rgba(170,125,45,0.13),transparent_55%)]" />
+        <div
+  className="absolute inset-0 bg-cover bg-center"
+  style={{ backgroundImage: "url('/homepageimage.jpeg')" }}
+/>
+        <div className="absolute inset-0 bg-black/60" />
 
         <div className="relative mx-auto w-full max-w-7xl px-6 py-28">
           <p className="mb-6 text-xs uppercase tracking-[0.35em] text-[#c5a76a]">

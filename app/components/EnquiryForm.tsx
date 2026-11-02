@@ -18,7 +18,7 @@ const countriesByRegion: Record<string, string[]> = {
     "Germany",
     "France",
     "Ireland",
-    "Finland",
+    "United Kindom",
   ],
   "North America": [
     "Canada",
@@ -61,9 +61,10 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
       email: formData.get("email") as string,
       phone: formData.get("phone") as string,
       region,
-      country,
-      qualification,
-      services: selectedServices,
+country: new URLSearchParams(window.location.search).get("country") || country,
+qualification,
+interest: new URLSearchParams(window.location.search).get("interest"),
+services: selectedServices,
     },
   ]);
 
@@ -226,6 +227,40 @@ async function handleSubmit(event: FormEvent<HTMLFormElement>) {
       >
         Submit Enquiry ↗
       </button>
+      {message && (
+  <div
+    role="status"
+    aria-live="polite"
+    className={`mt-8 rounded-2xl border p-8 sm:p-12 text-center ${
+      message.includes("successfully")
+        ? "border-[#c5a76a]/50 bg-[#c5a76a]/10"
+        : "border-red-500/30 bg-red-500/10"
+    }`}
+  >
+    {message.includes("successfully") ? (
+      <>
+        <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-full border-2 border-[#c5a76a] bg-[#c5a76a]/15">
+          <span className="text-6xl font-bold text-[#c5a76a]">✓</span>
+        </div>
+
+        <h2 className="mb-4 text-2xl sm:text-3xl font-semibold text-[#e7d5ad]">
+          Enquiry Submitted Successfully!
+        </h2>
+
+        <p className="mx-auto max-w-xl text-base sm:text-lg leading-relaxed text-neutral-300">
+          Thank you for choosing Elystria Atlas. Your enquiry has been
+          received successfully.
+        </p>
+
+        <p className="mt-4 text-sm text-[#c5a76a]">
+          Our counselling team will contact you soon.
+        </p>
+      </>
+    ) : (
+      <p className="text-red-300">{message}</p>
+    )}
+  </div>
+)}
     </form>
   );
 }

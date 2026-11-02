@@ -1,3 +1,4 @@
+import Link from "next/link";
 const countries: Record<string, string[]> = {
   asia: ["Japan", "China", "South Korea", "Singapore", "Vietnam", "Taiwan"],
   europe: ["Lithuania", "Germany", "France", "United Kingdom", "Ireland"],
@@ -44,24 +45,25 @@ export default async function RegionPage({
 
         <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {regionCountries.map((country, index) => (
-            <div
-              key={country}
-              className="min-h-[220px] border border-[#b89a55]/30 bg-[#111] p-8 flex flex-col justify-between hover:border-[#c5a76a] transition"
-            >
-              <span className="text-xs tracking-widest text-[#c5a76a]">
-                DESTINATION 0{index + 1}
-              </span>
+  <Link
+  key={country}
+  href={`/destinations/${region}/${country.toLowerCase().replace(/\s+/g, "-")}`}
+  className="min-h-[220px] border border-[#b89a55]/30 bg-[#111] p-8 flex flex-col"
+>
+  <span className="text-xs tracking-widest text-[#c5a76a]">
+    DESTINATION 0{index + 1}
+  </span>
 
-              <div>
-                <h2 className="font-serif text-3xl">{country}</h2>
-                <p className="mt-3 text-sm text-neutral-400">
-                  Explore study opportunities
-                </p>
-              </div>
+  <div>
+    <h2 className="font-serif text-3xl">{country}</h2>
+    <p className="mt-3 text-sm text-neutral-400">
+      Explore study opportunities
+    </p>
+  </div>
+</Link>
+))}
             </div>
-          ))}
-        </div>
-      </div>
+    </div>
     </main>
   );
 }
