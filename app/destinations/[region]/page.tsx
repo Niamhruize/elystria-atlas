@@ -1,8 +1,24 @@
 import Link from "next/link";
+export const instant = false;
 const countries: Record<string, string[]> = {
   asia: ["Japan", "China", "South Korea", "Singapore", "Vietnam", "Taiwan"],
   europe: ["Lithuania", "Germany", "France", "United Kingdom", "Ireland"],
-  "north-america": ["Canada"],
+  
+ "north-america": ["Canada"],
+};
+const countryImages: Record<string, string> = {
+  Japan: "/destinations/japan.jpg",
+  China: "/destinations/china.jpg",
+  "South Korea": "/destinations/South-korea.jpg",
+  Singapore: "/destinations/singapore.jpg",
+  Vietnam: "/destinations/vietnam.jpg",
+  Taiwan: "/destinations/taiwan.jpg",
+  Lithuania: "/destinations/lithuania.jpg",
+  Germany: "/destinations/germany.jpg",
+  France: "/destinations/france.jpg",
+  "United Kingdom": "/destinations/united-kingdom.jpg",
+  Ireland: "/destinations/ireland.jpg",
+  Canada: "/destinations/canada.jpg",
 };
 export function generateStaticParams() {
   return Object.keys(countries).map((region) => ({
@@ -48,7 +64,12 @@ export default async function RegionPage({
   <Link
   key={country}
   href={`/destinations/${region}/${country.toLowerCase().replace(/\s+/g, "-")}`}
-  className="min-h-[220px] border border-[#b89a55]/30 bg-[#111] p-8 flex flex-col"
+  className="min-h-[220px] border border-[#b89a55]/30 p-8 flex flex-col justify-between bg-cover bg-center"
+  style={{
+    backgroundImage: `linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.65)), url('${countryImages[country]}')`,
+  backgroundSize: "cover",
+backgroundPosition: "center",
+  }}
 >
   <span className="text-xs tracking-widest text-[#c5a76a]">
     DESTINATION 0{index + 1}

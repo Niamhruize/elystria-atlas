@@ -2,11 +2,14 @@
 import Link from "next/link";
 import EnquiryForm from "./components/EnquiryForm";
 
+
 const destinations = [
   {
     name: "Asia",
     detail: "Explore opportunities across Asia",
     code: "AS",
+    specialty: "Technology • Innovation • Culture",
+    image: "/destinations/asia.jpg",
     href: "/destinations/asia",
     color: "from-amber-900 to-neutral-950",
   },
@@ -14,6 +17,8 @@ const destinations = [
     name: "Europe",
     detail: "Discover your European study journey",
     code: "EU",
+    specialty: "Research • Heritage • Global Education",
+    image: "/destinations/europe.jpg",
     href: "/destinations/europe",
     color: "from-stone-700 to-neutral-950",
   },
@@ -21,10 +26,13 @@ const destinations = [
     name: "North America",
     detail: "Find your path across North America",
     code: "NA",
+    specialty: "Innovation • Research • Career Growth",
+    image: "/destinations/north-america.jpg",
     href: "/destinations/north-america",
     color: "from-zinc-700 to-neutral-950",
   },
 ];
+
 
 const services = [
   {
@@ -68,10 +76,10 @@ export default function Home() {
 
             <div>
               <h1 className="font-serif text-xl text-[#d2b77c]">
-                Elystria Atlas
+                Evynir
               </h1>
               <p className="text-[9px] tracking-[0.25em] text-neutral-500">
-                YOUR ATLAS TO ELYSTRIA
+                YOUR FUTURE, REIMAGINED
               </p>
             </div>
           </Link>
@@ -137,7 +145,7 @@ export default function Home() {
               href="#about"
               className="border border-white/20 px-7 py-4 text-xs uppercase tracking-widest text-white transition hover:border-[#c5a76a] hover:text-[#c5a76a]"
             >
-              Discover Elystria
+              Discover Discover Evynir
             </a>
           </div>
         </div>
@@ -148,7 +156,7 @@ export default function Home() {
         <div className="grid gap-12 md:grid-cols-2 md:items-center">
           <div>
             <p className="mb-5 text-xs uppercase tracking-[0.3em] text-[#c5a76a]">
-              About Elystria Atlas
+              About Evynir
             </p>
 
             <h2 className="font-serif text-4xl leading-tight md:text-5xl">
@@ -159,7 +167,7 @@ export default function Home() {
           <div>
             <p className="text-base leading-8 text-neutral-400">
               Choosing to study abroad is a significant step towards your
-              future. At Elystria Atlas, we help students explore
+              future. At Evynir, we help students explore
               international education opportunities and understand the
               journey ahead.
             </p>
@@ -199,17 +207,21 @@ export default function Home() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {destinations.map((place) => (
               <Link
+              
                 href={place.href}
                 key={place.code}
                 className={`group relative flex min-h-[300px] flex-col justify-between overflow-hidden border border-[#b89a51]/30 bg-gradient-to-br ${place.color} p-8 transition duration-500 hover:-translate-y-2 hover:border-[#d2b77c]`}
+              style={{
+  backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${place.image}')`,
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+}}
               >
-                <div className="absolute -right-2 top-5 font-serif text-9xl text-white/[0.04]">
-                  {place.code}
-                </div>
+                
 
                 <div className="relative">
-                  <span className="text-xs tracking-[0.3em] text-[#d2b77c]">
-                    {place.code}
+                  <span className="text-sm font-bold tracking-[0.15em] text-[#f5d98b] drop-shadow-md">
+                    {place.specialty}
                   </span>
                 </div>
 
@@ -218,7 +230,7 @@ export default function Home() {
                     {place.name}
                   </h3>
 
-                  <p className="mt-3 text-sm text-neutral-400">
+                  <p className="mt-3 text-sm font-medium text-white drop-shadow-md">
                     {place.detail}
                   </p>
 
@@ -275,10 +287,10 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col justify-between gap-8 px-6 py-12 md:flex-row md:items-center">
           <div>
             <h2 className="font-serif text-2xl text-[#d2b77c]">
-              Elystria Atlas
+              Evynir
             </h2>
             <p className="mt-2 text-[10px] tracking-[0.3em] text-neutral-500">
-              YOUR ATLAS TO ELYSTRIA
+              Evynir
             </p>
           </div>
 
@@ -291,7 +303,7 @@ export default function Home() {
         </div>
 
         <div className="border-t border-white/10 px-6 py-5 text-center text-xs text-neutral-600">
-          © 2026Elystria Atlas. All rights reserved.
+          © 2026Evynir. All rights reserved.
         </div>
       </footer>
     </main>

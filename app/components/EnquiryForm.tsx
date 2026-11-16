@@ -248,7 +248,7 @@ services: selectedServices,
         </h2>
 
         <p className="mx-auto max-w-xl text-base sm:text-lg leading-relaxed text-neutral-300">
-          Thank you for choosing Elystria Atlas. Your enquiry has been
+          Thank you for choosing Evynir. Your enquiry has been
           received successfully.
         </p>
 
