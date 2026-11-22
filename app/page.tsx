@@ -139,9 +139,9 @@ export default function Home() {
           <h1
             className={`${display} max-w-4xl text-4xl font-medium leading-[1.05] text-[#FCFFFF] sm:text-6xl md:text-7xl lg:text-8xl`}
           >
-            Beyond borders,
+            Unlock the potential
             <span className="block italic text-[#BDE6F5]">
-              beyond possibilities.
+              you’ve always had.
             </span>
           </h1>
 
