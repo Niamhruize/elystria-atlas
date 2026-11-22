@@ -45,7 +45,7 @@ export default async function CountryPage({
     <a
       key={item}
       href={`/?country=${encodeURIComponent(countryName)}&interest=${encodeURIComponent(item)}#enquire`}
-      className="block border border-[#b89a55]/30 bg-[#111] p-8 transition hover:border-[#b89a55]"
+      className="block border border-[#b89a55]/30 bg-[#111] p-8 transition-all duration-300 hover:border-[#b89a55] hover:shadow-[0_0_20px_rgba(184,154,85,0.3)] hover:-translate-y-1"
       style={{
   backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.8)), url('/destinations/information/${["universities.jpg", "admission.jpg", "tuition.jpg", "scholarships.jpg", "visa.jpg", "part-time-work.jpg"][index]}')`,
   backgroundSize: "cover",
