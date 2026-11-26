@@ -70,6 +70,7 @@ const services = [
   {
     number: "04",
     title: "Scholarship Guidance",
+    href: "/scholarships",
     description:
       "Explore scholarship opportunities, tuition fee reductions and funding options for your studies.",
   },
@@ -101,6 +102,12 @@ export default function Home() {
             <a href="#services" className="transition hover:text-[#0593C6]">
               Services
             </a>
+            <Link
+              href="/scholarships"
+              className="transition hover:text-[#0593C6]"
+            >
+              Scholarships
+            </Link>
             <a href="#enquire" className="transition hover:text-[#0593C6]">
               Contact
             </a>
@@ -115,10 +122,11 @@ export default function Home() {
         </div>
 
         {/* Mobile menu row */}
-        <nav className="flex items-center justify-between border-t border-[#0593C6]/10 px-6 py-2.5 text-xs text-[#0B3B4F] md:hidden">
+        <nav className="flex items-center justify-between border-t border-[#0593C6]/10 px-4 py-2.5 text-xs text-[#0B3B4F] md:hidden">
           <a href="#about">About</a>
           <a href="#destinations">Destinations</a>
           <a href="#services">Services</a>
+          <Link href="/scholarships">Scholarships</Link>
           <a href="#enquire">Contact</a>
         </nav>
       </header>
@@ -292,26 +300,50 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-2 gap-3 sm:gap-6">
-            {services.map((service) => (
-              <div
-                key={service.number}
-                className="rounded-[1.5rem] bg-[#E6F4FA] p-5 transition duration-300 hover:bg-[#D6EEF8] sm:rounded-[2rem] sm:p-10"
-              >
-                <p className={`${label} mb-6 text-[#036F96] sm:mb-14`}>
-                  {service.number}
-                </p>
+            {services.map((service) => {
+              const cardClass =
+                "rounded-[1.5rem] bg-[#E6F4FA] p-5 transition duration-300 hover:bg-[#D6EEF8] sm:rounded-[2rem] sm:p-10";
 
-                <h3
-                  className={`${display} text-xl font-medium leading-tight text-[#0593C6] sm:text-4xl`}
+              const content = (
+                <>
+                  <p className={`${label} mb-6 text-[#036F96] sm:mb-14`}>
+                    {service.number}
+                  </p>
+
+                  <h3
+                    className={`${display} text-xl font-medium leading-tight text-[#0593C6] sm:text-4xl`}
+                  >
+                    {service.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs leading-6 text-[#0B3B4F]/80 sm:mt-4 sm:max-w-md sm:text-sm sm:leading-7">
+                    {service.description}
+                  </p>
+
+                  {service.href && (
+                    <span
+                      className={`${label} mt-5 inline-flex items-center gap-2 rounded-full bg-[#0593C6] px-4 py-2.5 text-[#FCFFFF]`}
+                    >
+                      Check eligibility <span aria-hidden>↗</span>
+                    </span>
+                  )}
+                </>
+              );
+
+              return service.href ? (
+                <Link
+                  key={service.number}
+                  href={service.href}
+                  className={`${cardClass} block`}
                 >
-                  {service.title}
-                </h3>
-
-                <p className="mt-3 text-xs leading-6 text-[#0B3B4F]/80 sm:mt-4 sm:max-w-md sm:text-sm sm:leading-7">
-                  {service.description}
-                </p>
-              </div>
-            ))}
+                  {content}
+                </Link>
+              ) : (
+                <div key={service.number} className={cardClass}>
+                  {content}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -339,6 +371,12 @@ export default function Home() {
             <a href="#services" className="transition hover:text-[#BDE6F5]">
               Services
             </a>
+            <Link
+              href="/scholarships"
+              className="transition hover:text-[#BDE6F5]"
+            >
+              Scholarships
+            </Link>
             <a href="#enquire" className="transition hover:text-[#BDE6F5]">
               Contact
             </a>
